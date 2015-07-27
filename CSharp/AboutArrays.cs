@@ -65,8 +65,8 @@ namespace DotNetKoans.CSharp
         {
             var array = new[] { "peanut", "butter", "and", "jelly" };
 
-			Assert.Equal(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Take(2).ToArray());
-			Assert.Equal(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Skip(1).Take(2).ToArray());
+			Assert.Equal(new string[] { (string)array[0], (string)array[1] }, array.Take(2).ToArray());
+			Assert.Equal(new string[] { (string)array[1], (string)array[2] }, array.Skip(1).Take(2).ToArray());
         }
 
         [Koan(5)]
