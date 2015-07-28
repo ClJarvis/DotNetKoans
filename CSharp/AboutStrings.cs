@@ -75,7 +75,7 @@ broken line";
             //the hardcoded escape sequence. A much better way
             //(We'll handle concatenation and better ways of that in a bit)
             var literalString = "I" + System.Environment.NewLine + "am a" + System.Environment.NewLine + "broken line";
-            var vebatimString = FILL_ME_IN;
+            var vebatimString = "I\r\nam a\r\nbroken line";
             Assert.Equal(literalString, vebatimString);
         }
 
@@ -83,7 +83,7 @@ broken line";
         public void PlusWillConcatenateTwoStrings()
         {
             var str = "Hello, " + "World";
-            Assert.Equal(FILL_ME_IN, str);
+            Assert.Equal("Hello, World", str);
         }
 
         [Koan(9)]
@@ -92,8 +92,8 @@ broken line";
             var strA = "Hello, ";
             var strB = "World";
             var fullString = strA + strB;
-            Assert.Equal(FILL_ME_IN, strA);
-            Assert.Equal(FILL_ME_IN, strB);
+            Assert.Equal("Hello, ", strA);
+            Assert.Equal("World", strB);
         }
 
         [Koan(10)]
@@ -102,8 +102,8 @@ broken line";
             var strA = "Hello, ";
             var strB = "World";
             strA += strB;
-            Assert.Equal(FILL_ME_IN, strA);
-            Assert.Equal(FILL_ME_IN, strB);
+            Assert.Equal("Hello, World", strA);
+            Assert.Equal("World", strB);
         }
 
         [Koan(11)]
@@ -117,7 +117,7 @@ broken line";
             var originalString = strA;
             var strB = "World";
             strA += strB;
-            Assert.Equal(FILL_ME_IN, originalString);
+            Assert.Equal("Hello, ", originalString);
 
             //What just happened? Well, the string concatenation actually
             //takes strA and strB and creates a *new* string in memory
