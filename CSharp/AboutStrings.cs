@@ -49,9 +49,9 @@ namespace DotNetKoans.CSharp
         {
             var strA = @"Verbatim Strings can handle both ' and "" characters (when escaped)";
             var strB = "Verbatim Strings can handle both ' and \" characters (when escaped)";
-            Assert.Equal(FILL_ME_IN, strA.Equals(strB));
+            Assert.Equal(strA == strB, strA.Equals(strB));
         }
-
+        
         [Koan(6)]
         public void VerbatimStringsCanHandleMultipleLinesToo()
         {
@@ -63,7 +63,7 @@ namespace DotNetKoans.CSharp
 am a
 broken line";
             Assert.Equal(20, verbatimString.Length);
-            var literalString = "I \r\n am a \r\n broken line";
+            var literalString = "I\r\nam a\r\nbroken line";
             Assert.Equal(literalString, verbatimString);
         }
 
