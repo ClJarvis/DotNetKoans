@@ -135,7 +135,7 @@ namespace DotNetKoans.CSharp
         public void CallingProtectedMethodsOnAnInstance()
         {
             StateSecret secret = new StateSecret();
-            Assert.Equal(FILL_ME_IN, secret.InformationLeak());
+            Assert.Equal("This is secret", secret.InformationLeak());
         }
 
         //But, we can't call the private methods of InnerSecret
@@ -152,7 +152,7 @@ namespace DotNetKoans.CSharp
             string superSecretMessage = secret.GetType()
                 .GetMethod("SooperSeekrit", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                 .Invoke(secret, null) as string;
-            Assert.Equal(FILL_ME_IN, superSecretMessage);
+            Assert.Equal("No one will find me!", superSecretMessage);
         }
 
         //Up till now we've had explicit return types. It's also
@@ -170,7 +170,7 @@ namespace DotNetKoans.CSharp
         {
             Assert.Equal(typeof(FillMeIn), GiveMeBack<int>(1).GetType());
 
-            Assert.Equal(FILL_ME_IN, GiveMeBack<string>("Hi!"));
+            Assert.Equal(FILL_ME_IN, GiveMeBack<string>("Hi!")); //strange error in vb save now
         }
     }
 }
