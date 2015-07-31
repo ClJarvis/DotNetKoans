@@ -126,41 +126,41 @@ namespace DotNetKoans.CSharp
 		{
 			List<int> list = new List<int> { 1, 2, 3 };
 			//You cannot attempt to get data that doesn't exist
-			Assert.Throws(typeof(FillMeIn), delegate() { int x = list[3]; });
+			Assert.Throws(typeof(System.ArgumentOutOfRangeException), delegate() { int x = list[3]; });
 		}
-		[Koan(12)]
-		public void ConvertingToFixedSize()
-		{
-			List<int> list = new List<int> { 1, 2, 3 };
-			Assert.Equal(FILL_ME_IN, list.ToArray());
+        [Koan(12)]
+        public void ConvertingToFixedSize()
+        {
+            List<int> list = new List<int> { 1, 2, 3 };
+            Assert.Equal(new int[] {1, 2, 3}, list.ToArray());
 		}
 		[Koan(13)]
 		public void InsertingInTheMiddle()
 		{
 			List<int> list = new List<int> { 1, 2, 3 };
 			list.Insert(1, 6);
-			Assert.Equal(FILL_ME_IN, list.ToArray());
+			Assert.Equal(new int[] {1, 6, 2, 3}, list.ToArray());
 		}
 		[Koan(14)]
 		public void RemovingItems()
 		{
 			List<int> list = new List<int> { 2, 1, 2, 3 };
 			list.Remove(2);
-			Assert.Equal(FILL_ME_IN, list.ToArray());
+			Assert.Equal(new int[] { 1, 2, 3 }, list.ToArray());
 		}
 		[Koan(15)]
 		public void StackPushPop()
 		{
 			var stack = new Stack<int>();
-			Assert.Equal(FILL_ME_IN, stack.Count);
+			Assert.Equal(0, stack.Count);
 
 			stack.Push(42);
-			Assert.Equal(FILL_ME_IN, stack.Count);
+			Assert.Equal(1, stack.Count);
 
 			int x = stack.Pop();
-			Assert.Equal(FILL_ME_IN, x);
+			Assert.Equal(42, x);
 
-			Assert.Equal(FILL_ME_IN, stack.Count);
+			Assert.Equal(0, stack.Count);
 		}
 		[Koan(16)]
 		public void StackOrder()
@@ -170,16 +170,16 @@ namespace DotNetKoans.CSharp
 			stack.Push(2);
 			stack.Push(3);
 
-			Assert.Equal(FILL_ME_IN, stack.ToArray());
+			Assert.Equal(new int[] {3, 2, 1 }, stack.ToArray());
 		}
 		[Koan(17)]
 		public void PeekingIntoAQueue()
 		{
 			Queue<string> queue = new Queue<string>();
 			queue.Enqueue("one");
-			Assert.Equal(FILL_ME_IN, queue.Peek());
+			Assert.Equal("one", queue.Peek());
 			queue.Enqueue("two");
-			Assert.Equal(FILL_ME_IN, queue.Peek());
+			Assert.Equal("one", queue.Peek());
 		}
 		[Koan(18)]
 		public void RemovingItemsFromTheQueue()
@@ -187,17 +187,17 @@ namespace DotNetKoans.CSharp
 			Queue<string> queue = new Queue<string>();
 			queue.Enqueue("one");
 			queue.Enqueue("two");
-			Assert.Equal(FILL_ME_IN, queue.Dequeue());
-			Assert.Equal(FILL_ME_IN, queue.Count);
+			Assert.Equal("one", queue.Dequeue());
+			Assert.Equal(1, queue.Count);
 		}
 		[Koan(19)]
 		public void AddingToADictionary()
 		{
 			//Dictionary<TKey, TValue> is .Net's key value store. The key and the value do not need to be the same types.
 			Dictionary<int, string> dictionary = new Dictionary<int, string>();
-			Assert.Equal(FILL_ME_IN, dictionary.Count);
+			Assert.Equal(0, dictionary.Count);
 			dictionary[1] = "one";
-			Assert.Equal(FILL_ME_IN, dictionary.Count);
+			Assert.Equal(1, dictionary.Count);
 		}
 		[Koan(20)]
 		public void AccessingData()
