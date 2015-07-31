@@ -168,9 +168,9 @@ namespace DotNetKoans.CSharp
         [Koan(11)]
         public void CallingGenericMethods()
         {
-            Assert.Equal(typeof(FillMeIn), GiveMeBack<int>(1).GetType());
+            Assert.Equal(typeof(int), GiveMeBack<int>(1).GetType());
 
-            Assert.Equal(FILL_ME_IN, GiveMeBack<string>("Hi!")); //strange error in vb save now
+            Assert.Equal("Hi!", GiveMeBack<string>("Hi!")); //strange thing in vb, looked like loading status bar cannot reproduce, dissapeared quickly
         }
     }
 }
