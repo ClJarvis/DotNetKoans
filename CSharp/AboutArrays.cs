@@ -11,9 +11,9 @@ namespace DotNetKoans.CSharp
     {
         [Koan(1)]
         public void CreatingArrays()
-        {
-            int[] empty_array = new int[0] { };
-            Assert.Equal(typeof(int[]), empty_array.GetType());
+        { 
+            var empty_array = new object[] { };
+            Assert.Equal(typeof(object[]), empty_array.GetType());
 
             //Note that you have to explicitly check for subclasses
             Assert.True(typeof(Array).IsAssignableFrom(empty_array.GetType()));

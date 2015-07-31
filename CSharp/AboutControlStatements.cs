@@ -69,15 +69,15 @@ namespace DotNetKoans.CSharp
                 b1 = true;
                 b2 = true;
 
-			Assert.Equal(false, b1);
+			Assert.Equal(false, b1); //why is b1 false but b2 true? did it stop checking cause b1 is false?
 			Assert.Equal(true, b2);
         }
 
         [Koan(6)]
         public void TernaryOperators()
         {
-            Assert.Equal(FILL_ME_IN, (true ? 1 : 0));
-            Assert.Equal(FILL_ME_IN, (false ? 1 : 0));
+            Assert.Equal(1, (true ? 1 : 0));
+            Assert.Equal(0, (false ? 1 : 0));
         }
 
         //This is out of place for control statements, but necessary for Koan 8
@@ -88,8 +88,8 @@ namespace DotNetKoans.CSharp
             //i = null; //You can't do this
 
             int? nullableInt = null; //but you can do this
-			Assert.NotNull(FILL_ME_IN);
-			Assert.Null(FILL_ME_IN);
+			Assert.NotNull(FILL_ME_IN); //What?
+			Assert.Null(null);
         }
 
         [Koan(8)]
@@ -99,7 +99,7 @@ namespace DotNetKoans.CSharp
 
             int x = nullableInt ?? 42;
 
-            Assert.Equal(FILL_ME_IN, x);
+            Assert.Equal(42, x);
         }
 
         [Koan(9)]
@@ -120,9 +120,9 @@ namespace DotNetKoans.CSharp
             if (myType is AboutMethods)
                 isAboutMethods = true;
 
-            Assert.Equal(FILL_ME_IN, isKoan);
-            Assert.Equal(FILL_ME_IN, isAboutControlStatements);
-            Assert.Equal(FILL_ME_IN, isAboutMethods);
+            Assert.Equal(true, isKoan);
+            Assert.Equal(true, isAboutControlStatements);
+            Assert.Equal(false, isAboutMethods);
 
         }
 
@@ -136,7 +136,7 @@ namespace DotNetKoans.CSharp
                 result = result + i;
                 i += 1;
             }
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equal(7, result);
         }
 
         [Koan(11)]
@@ -150,7 +150,7 @@ namespace DotNetKoans.CSharp
                 result = result + i;
                 i += 1;    
             }
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equal(7, result);
         }
 
         [Koan(12)]
@@ -164,7 +164,7 @@ namespace DotNetKoans.CSharp
                 if ((i % 2) == 0) { continue; }
                 result.Add(i);
             }
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equal(12, result);
         }
 
         [Koan(13)]
