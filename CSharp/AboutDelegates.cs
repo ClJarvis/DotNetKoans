@@ -213,14 +213,14 @@ namespace DotNetKoans.CSharp
 			//Predicate allows you to codify a condition and pass it around. 
 			//You use it to determine if an object satisfies some criteria. 
 
-			Predicate<int> i = (Predicate<int>)FILL_ME_IN;
+			Predicate<int> i = (Predicate<int>)IntEqualsFourtyTwo;
 			Assert.True(i(42));
 		}
 		[Koan(17)]
 		public void BuiltInPredicateDelegateStringSatisfied()
 		{
 			//Because it is a template, you can work with any type
-			Predicate<string> s = (Predicate<string>)FILL_ME_IN;
+			Predicate<string> s = (Predicate<string>)StringEqualsFourtyTwo;
 			Assert.True(s("42"));
 
 			//Predicate is not overloaded, so unlike Action<> you cannot do this...
@@ -238,7 +238,7 @@ namespace DotNetKoans.CSharp
 			//Predicate can be used to find an element in an array
 			var countries = new []{ "Greece", "Spain", "Uruguay", "Japan" };
 
-			Assert.Equal(FILL_ME_IN, Array.Find(countries, StartsWithS));
+			Assert.Equal("Spain", Array.Find(countries, StartsWithS));
 		}
 
 		private bool IsInSouthAmerica(string country)
@@ -252,7 +252,7 @@ namespace DotNetKoans.CSharp
 			//Predicate can also be used when verifying 
 			var countries = new[] { "Greece", "Spain", "Uruguay", "Japan" };
 
-			Assert.Equal(FILL_ME_IN, Array.TrueForAll(countries, IsInSouthAmerica));
+			Assert.Equal(false, Array.TrueForAll(countries, IsInSouthAmerica));
 		}
 
 		private string FirstMonth()
@@ -274,7 +274,7 @@ namespace DotNetKoans.CSharp
 			//If you specify more than one parameter, then you are specifying the paramter types as well.
 
 			Func<string> d = FirstMonth;
-			Assert.Equal(FILL_ME_IN, d());
+			Assert.Equal("January", d());
 		}
 		[Koan(21)]
 		public void FunctionReturnsInt()
